@@ -273,6 +273,13 @@ async function JogarComputador() {
     else
         document.getElementById("statsContent").textContent = "";
 
+    var casa = document.querySelector(`[data-position="${lance.toUpperCase()}"]`);
+    if(!JogadaValida(casa)) {
+        alert("Casa inválida por parte do motor de IA. Jogo cancelado.");
+        board.dataset.jogoEmCurso = 0;
+        return;
+    }
+
     ExecutarLanceHTML(lance);
 }
 
@@ -403,6 +410,12 @@ function EfetuarJogadaWASM(lance) {
     jogada = jogada.toLowerCase();
     let sucesso = ExecutarLance(jogada);
     console.log("Jogada enviada:", jogada, "Sucesso:", sucesso);
+
+    if(!sucesso) {
+        alert("Falha na comunicação com o motor de IA. Jogo cancelado.");
+        board.dataset.jogoEmCurso = 0;
+        return;
+    }
 
     if (lance == "")
         FinalizarJogada(true);

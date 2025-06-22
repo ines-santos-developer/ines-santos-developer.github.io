@@ -118,6 +118,9 @@ bool CGatosCaes::Acao(const char* acao) {
             jogadas++;
             return true;
         }
+        else {
+            printf("\nValida posicao negativo com pos: %d", pos);
+        }
     }
     return false;
 }
@@ -151,8 +154,8 @@ void CGatosCaes::TesteManual(const char* nome) {
 void CGatosCaes::ResetParametros() {
     static const char* heuristicaGatos[] = {
         "Sem heuristica",
-        "Heurística Casas",
-        "Heurística Ponderacao" };
+        "Heuristica Casas",
+        "Heuristica Ponderacao" };
 
     TProcuraAdversa::ResetParametros();
     /* Nível 1: limite=2 limiteTempo=1s heurGatos=1 (profundidade 1)
@@ -173,7 +176,7 @@ void CGatosCaes::ResetParametros() {
     parametro[podaCega].valor = 0;
 
     // heuristicaGatos
-    parametro.Add({ "Heuristica",1,0,2, "Possibilidades para a heurística", heuristicaGatos });
+    parametro.Add({ "Heuristica",1,0,2, "Possibilidades para a heuristica", heuristicaGatos });
 }
 
 int CGatosCaes::Heuristica() {

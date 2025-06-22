@@ -73,8 +73,6 @@ extern "C" void Executar(char accao[20], char estatisticas[1024]) {
 	gatosCaes.caminho.Count(0);
 	gatosCaes.LimparEstatisticas(inicio);
 	resultado = gatosCaes.ExecutaAlgoritmo();
-	printf("N(%d)", gatosCaes.N);
-	gatosCaes.Debug();
 	if (gatosCaes.solucao != NULL) {
 		// extrair a a��o que passa do estado atual para o resultado da execu��o
 		sprintf(accao, "%s", gatosCaes.Acao(gatosCaes.solucao));
@@ -86,6 +84,7 @@ extern "C" void Executar(char accao[20], char estatisticas[1024]) {
 	else 
 		sprintf(accao, "Sem lance (%d)", resultado);
 
+	gatosCaes.Debug();
 	// estat�sticas:
 	sprintf(estatisticas, "Profundidade: %d (%d%%)\nEstados: %d (%.1fs)",
 		gatosCaes.nivelOK, resultado / 10,
