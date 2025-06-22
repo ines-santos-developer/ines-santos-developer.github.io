@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Gatos Caes</title>
+    <link rel="stylesheet" href="gatoscaes.css">
+</head>
+<body>
+    <center>
+        <h1>Gatos Caes</h1>
+        <!-- Tabuleiro -->
+        <div id="board"></div>
+
+
+        <!-- Zona de Controlo -->
+        <div id="controlZone">
+
+            <!-- 1. Opções do Jogo -->
+            <section id="gameConfigurations">
+                <h2>Configurações</h2>
+                <fieldset>
+                    <legend>Início</legend>
+                    <label for="boardSize">Tabuleiro:</label>
+            <select id="boardSize">
+                <option value="4">4x4</option>
+                <option value="6">6x6</option>
+                <option value="8">8x8</option>
+            </select>
+            <button id="btnNovoJogo">Novo Jogo</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Opções</legend>
+            <form>
+                <label>
+                    <input type="checkbox" id="anotarCasas">
+                    Coordenadas
+                </label>
+                <label>
+                    <input type="checkbox" id="marcaUltimaJogada" checked>
+                    Marcar Jogada
+                </label>
+                <label>
+                    <input type="checkbox" id="mostraEstatisticas">
+                    Estatísticas
+                </label>
+            </form>
+        </fieldset>
+    </section>
+
+
+    <!-- 3. Zona do Computador -->
+                    <section id="computerOptions">
+                        <h2>Computador</h2>
+                        <label for="nivelJogo">Nível:</label>
+                        <select id="nivelJogo">
+                            <option value="1">Fácil</option>
+                            <option value="2">Desafiante</option>
+                            <option value="3">Complicado</option>
+                            <option value="4">Insano</option>
+                            <option value="5">Impossível</option>
+                        </select>
+                        <button id="btnJogar">Jogar</button>
+                        <!-- Área para mostrar estatísticas -->
+                        <div id="computerStats">
+                            <pre id="statsContent"></pre>
+                        </div>
+                    </section>
+
+                    <!-- 4. Histórico da Partida Atual -->
+                    <section id="gameHistory">
+                        <h2>Partida</h2>
+                        <ol id="moveList">
+                            <!-- Cada lance da partida poderá ser inserido aqui dinâmicamente -->
+                        </ol>
+                    </section>
+
+                    <!-- 5. Resultados dos Jogos -->
+                    <section id="gameResults">
+                        <h2>Resultados</h2>
+                        <!-- Uma tabela para exibir vitórias/derrotas conforme nível e tamanho do tabuleiro -->
+                        <table id="resultsTable">
+                            <thead>
+                                <tr>
+                                    <th>Tabuleiro</th>
+                                    <th>Humano</th>
+                                    <th>Fácil</th>
+                                    <th>Desafiante</th>
+                                    <th>Complicado</th>
+                                    <th>Insano</th>
+                                    <th>Impossível</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- As linhas poderão ser preenchidas dinamicamente usando dados gravados em cookies -->
+
+                            </tbody>
+                        </table>
+                        <button id="btnLimpar">Limpar</button>
+                    </section>
+
+</div>
+
+        <!-- 6. Zona de Links e Informações Finais -->
+        <footer id="footerLinks">
+            <iframe src="https://danieloliveira1802875.github.io/cnjm-footer/"
+                    width="100%">
+            </iframe>
+        </footer>
+
+    </center>
+
+        <!-- Inclusão dos scripts -->
+        <script src="gatoscaes.js"></script>
+        <script src="gatoscaes_wasm.js"></script>
+    </body>
+</html>
+
+
